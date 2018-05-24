@@ -28,9 +28,16 @@ class DetailViewController: UITableViewController, DetailTableViewCellDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // DetailViewController tạo tham chiếu mạnh đến DetailTableViewCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DetailTableViewCell
-        cell.indexPath = indexPath
+        //////////////////////
+        
+        // DetailTableViewCell tạo một tham chiếu mạnh đến DetailViewController
         cell.delegate = self
+        //////////////////////
+        
+        cell.indexPath = indexPath
         cell.nameLabel.text = "\(indexPath.row)"
         return cell
     }
